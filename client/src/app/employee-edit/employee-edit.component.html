@@ -1,0 +1,17 @@
+<form clrForm #employeeForm="ngForm" (ngSubmit)="save(employeeForm.value)">
+    <span class="clr-sr-only">Employee</span>
+    <input type="hidden" name="href" [(ngModel)]="employee.href">
+    <clr-input-container>
+        <label>Name</label>
+        <input clrInput type="text" [(ngModel)]="employee.name" name="name" required />
+        <clr-control-error>We need your name!</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Role</label>
+        <input clrInput type="text" [(ngModel)]="employee.role" name="role" required />
+        <clr-control-error>We need your role!</clr-control-error>
+    </clr-input-container>
+        <button class="btn btn-success" type="submit" [disabled]="!employeeForm.form.valid">Save</button>
+        <button class="btn btn-primary" routerLink='/employee-list'>Cancel</button>
+        <button class="btn btn-warning" (click)="remove(employee.href)" *ngIf="employee.href" type=button>Delete</button>
+</form>

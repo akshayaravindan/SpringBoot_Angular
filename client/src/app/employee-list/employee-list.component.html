@@ -1,0 +1,38 @@
+<div class="main-container">
+    <header class="header header-6">
+        <h2 style="color:white">
+            Employee Dashbaord
+        </h2>
+    </header>
+    <div class="content-container">
+        <div class="content-area">
+            <div *ngFor="let employee of employees">
+                <div class="clr-row">
+                    <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <a [routerLink]="['/employee-edit', employee.id]">
+                                    Employee #{{employee.id}}
+                                </a>
+                            </div>
+                            <div class="card-block">
+                                <div class="card-title">
+                                        Name: {{employee.name}}
+                                </div>
+                                <div class="card-text">
+                                    Role: {{employee.role}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="sidenav">
+            <button class="btn btn-link" [routerLink]="['/employee-add']">Add New Employee</button>
+            <!-- <form clrForm>
+                <input clrInput placeholder="Search Employee" type="text" id="keyword" />
+            </form> -->
+        </nav>
+    </div>
+</div>
